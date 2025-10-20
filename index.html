@@ -1,1 +1,778 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wohnungsübergabe Protokoll Professional – Rechtstext</title>
+<link rel="icon" href="./assets/logo.png">
+<meta name="robots" content="index,follow">
+<meta name="description" content="Professional apartment handover protocol app - Legal information in multiple languages">
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.7; margin: 0; color: #111; }
+  
+  /* Language Selector Styles */
+  .language-selector {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #F59E0B, #1E293B);
+    color: white;
+    padding: 0.8rem 0;
+    z-index: 25;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .language-selector .wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .language-selector a {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    text-decoration: none;
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  .language-selector a:hover, .language-selector a.active {
+    background-color: rgba(255,255,255,0.3);
+    transform: translateY(-1px);
+  }
+  
+  header { position: sticky; top: 64px; background: #fff; border-bottom: 1px solid #eee; z-index: 20; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 1rem; }
+  .brand { display: flex; align-items: center; gap: .8rem; padding: .8rem 0; }
+  .brand img { height: 44px; width: 44px; border-radius: 10px; }
+  nav { position: sticky; top: 128px; background: #fff; z-index: 15; border-bottom: 1px solid #eee; }
+  nav .menu { display: flex; flex-wrap: wrap; gap: .5rem; padding: .5rem 0; }
+  nav .menu a { text-decoration: none; border: 1px solid #e5e7eb; padding: .35rem .6rem; border-radius: .4rem; }
+  nav .menu a:hover { background: #f3f4f6; }
+  
+  /* Content Sections */
+  main { padding: 1rem 0 3rem; }
+  .content-section { display: none; }
+  .content-section.active { display: block; }
+  
+  h1 { font-size: 1.6rem; margin: 1rem 0 .6rem; }
+  h2 { color: #1E293B; border-bottom: 2px solid #F59E0B; padding-bottom: 5px; margin-top: 2rem; }
+  .meta { color: #6b7280; font-size: .9rem; }
+  article p { margin: .7rem 0; }
+  article p strong { display: inline-block; min-width: 13ch; }
+  
+  /* Special Styling */
+  .important {
+    background-color: #FEF3C7;
+    border-left: 4px solid #F59E0B;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 0 8px 8px 0;
+  }
+  .contact-info {
+    background-color: #F8FAFC;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid #E5E7EB;
+  }
+  
+  footer { color: #6b7280; padding: 2rem 0; border-top: 1px solid #eee; }
+  
+  /* Consent Banner */
+  #consent-banner {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999;
+    background: #111827; color: #fff; padding: 1rem;
+    box-shadow: 0 -4px 16px rgba(0,0,0,.2);
+  }
+  #consent-banner .inner { max-width: 960px; margin: 0 auto; display: grid; gap: .75rem; padding: 0 1rem; }
+  #consent-banner p { margin: 0; }
+  #consent-banner .actions { display: flex; gap: .5rem; flex-wrap: wrap; }
+  .btn { border: 1px solid #374151; background: #1f2937; color: #fff; padding: .45rem .8rem; cursor: pointer; border-radius: .5rem; }
+  .btn.primary { background: #2563eb; border-color: #1d4ed8; }
+  .btn:hover { filter: brightness(1.1); }
+  
+  /* Modal */
+  #consent-modal { position: fixed; inset: 0; display: none; align-items: center; justify-content: center; background: rgba(0,0,0,.5); z-index: 10000; }
+  #consent-modal .card { background: #fff; color: #111; max-width: 640px; width: calc(100% - 2rem); border-radius: .8rem; padding: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
+  #consent-modal h3 { margin-top: .2rem; }
+  .row { display: flex; justify-content: space-between; align-items: center; padding: .6rem 0; border-bottom: 1px solid #eee; }
+  .badge { font-size: .8rem; padding: .2rem .4rem; border-radius: .4rem; background: #e5e7eb; }
+  .link { color: #2563eb; text-decoration: none; }
+  
+  @media (max-width: 768px) {
+    .language-selector .wrap { gap: 0.3rem; }
+    .language-selector a { padding: 0.3rem 0.6rem; font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
 
+<!-- Language Selector -->
+<div class="language-selector">
+  <div class="wrap">
+    <a href="#" data-lang="de" class="active">🇩🇪 Deutsch</a>
+    <a href="#" data-lang="en">🇬🇧 English</a>
+    <a href="#" data-lang="fr">🇫🇷 Français</a>
+    <a href="#" data-lang="es">🇪🇸 Español</a>
+    <a href="#" data-lang="it">🇮🇹 Italiano</a>
+  </div>
+</div>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <img src="./assets/logo.png?v=1" alt="Wohnungsübergabe Protokoll Professional – Logo" onerror="this.src='./logo.png'; this.onerror=null;">
+      <div>
+        <div style="font-weight:700; letter-spacing:.02em;" id="brand-title">WOHNUNGSÜBERGABE PROTOKOLL</div>
+        <div style="font-size:.8rem; letter-spacing:.18em;" id="brand-subtitle">PROFESSIONAL</div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <nav aria-label="Seitennavigation">
+      <div class="menu" id="nav-menu">
+        <a href="#impressum" data-section="impressum">Impressum</a>
+        <a href="#datenschutz" data-section="datenschutz">Datenschutz</a>
+        <a href="#agb" data-section="agb">AGB</a>
+        <a href="#hinweise" data-section="hinweise">Hinweise</a>
+        <a href="#eu" data-section="eu">EU</a>
+        <a href="#support" data-section="support">Support/FAQ/Kontakt</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- GERMAN CONTENT -->
+  <div id="content-de" class="content-section active">
+    <h1 id="impressum">Impressum</h1>
+    <p class="meta">Stand: 29. Juli 2025</p>
+
+    <article>
+      <div class="contact-info">
+        <h2>📞 Verantwortlicher</h2>
+        <p><strong>Daniel Ovadia</strong><br>
+        Eugen‑Richter‑Str. 159<br>
+        76187 Karlsruhe, Deutschland<br>
+        E-Mail: <a class="link" href="mailto:Laermprotokollprofessionell@outlook.de">Laermprotokollprofessionell@outlook.de</a><br>
+        Support ausschließlich per E‑Mail, keine Telefon‑Hotline.</p>
+      </div>
+
+      <p><strong>Gegenstand:</strong> Die App „Wohnungsübergabe Protokoll Professional" dient der professionellen Dokumentation von Wohnungsübergaben (Fotos, Videos, Notizen, GPS-Ortung, Zeitstempel, Checklisten). Die Website stellt rechtliche Informationen bereit. Es erfolgt keine Rechtsberatung; eine gerichtliche Verwertbarkeit wird nicht zugesichert.</p>
+
+      <h2 id="datenschutz">Datenschutz (gilt für App & Website)</h2>
+      
+      <div class="important">
+        <h3>🔒 Wichtiger Hinweis zum Datenschutz</h3>
+        <p><strong>Alle Ihre Daten bleiben auf Ihrem Gerät!</strong> Wohnungsübergabe Protokoll Professional überträgt keine persönlichen Daten automatisch an unsere Server. Ihre Privatsphäre hat höchste Priorität.</p>
+      </div>
+
+      <h3>Grundsatz zur Datenverarbeitung</h3>
+      <p>Wir verarbeiten so wenige personenbezogene Daten wie möglich. App‑Daten werden ausschließlich lokal auf Ihrem Endgerät gespeichert und nur auf Ihre Initiative exportiert (PDF/JSON/ZIP). Die Website wird über GitHub Pages (GitHub, Inc.) bereitgestellt.</p>
+
+      <h3>Welche Daten werden verarbeitet?</h3>
+      <h4>Lokal gespeicherte Daten</h4>
+      <ul>
+        <li><strong>Wohnungsübergabe-Protokolle:</strong> Datum, Zeit, Standort, Beschreibungen, Checklisten</li>
+        <li><strong>Medien:</strong> Foto-/Videoaufnahmen (nur bei Ihrer aktiven Nutzung)</li>
+        <li><strong>GPS-Koordinaten:</strong> Nur wenn Sie die Standortfunktion aktivieren</li>
+        <li><strong>App-Einstellungen:</strong> Sprache, Kategorien, Präferenzen</li>
+      </ul>
+
+      <h4>Keine Datenübertragung</h4>
+      <p>Die App überträgt <strong>keine Ihrer persönlichen Daten</strong> an externe Server, es sei denn:</p>
+      <ul>
+        <li>Sie exportieren Daten bewusst (z.B. per E-Mail)</li>
+        <li>Sie nutzen Google Play Billing für Premium-Features</li>
+      </ul>
+
+      <h3>GitHub Pages (Website-Hosting)</h3>
+      <p>Diese Website wird auf GitHub Pages gehostet. GitHub kann beim Seitenaufruf technische Daten verarbeiten:</p>
+      <ul>
+        <li><strong>IP-Adresse:</strong> Wird in anonymisierten Server-Logs gespeichert</li>
+        <li><strong>Browser-Typ und Version</strong></li>
+        <li><strong>Aufgerufene Seiten und Zeitpunkt</strong></li>
+      </ul>
+      <p>GitHub Pages setzt keine Tracking-Cookies. Weitere Informationen: <a class="link" href="https://docs.github.com/de/pages/getting-started-with-github-pages/about-github-pages" target="_blank">GitHub Pages Datenschutz</a></p>
+
+      <h3>Google Play Store & In-App-Käufe</h3>
+      <p>Bei Nutzung von Premium-Features über Google Play:</p>
+      <ul>
+        <li>Verarbeitet Google Play Billing Ihre Zahlungsinformationen</li>
+        <li>Wir erhalten nur einen anonymisierten Kaufnachweis (keine Zahlungsdetails)</li>
+        <li>Details: <a class="link" href="https://policies.google.com/privacy" target="_blank">Google Datenschutzerklärung</a></li>
+      </ul>
+
+      <h3>Ihre Rechte (DSGVO)</h3>
+      <p>Sie haben folgende Rechte:</p>
+      <ul>
+        <li><strong>Auskunft:</strong> Welche Daten wir über Sie verarbeiten</li>
+        <li><strong>Berichtigung:</strong> Korrektur falscher Daten</li>
+        <li><strong>Löschung:</strong> Entfernung Ihrer Daten ("Recht auf Vergessenwerden")</li>
+        <li><strong>Einschränkung:</strong> Sperrung der Datenverarbeitung</li>
+        <li><strong>Datenübertragbarkeit:</strong> Erhalt Ihrer Daten in strukturiertem Format</li>
+        <li><strong>Widerspruch:</strong> Gegen bestimmte Verarbeitungen</li>
+        <li><strong>Beschwerde:</strong> Bei einer Datenschutz-Aufsichtsbehörde</li>
+      </ul>
+      <p>Kontakt für Datenschutzanfragen: <a class="link" href="mailto:Laermprotokollprofessionell@outlook.de">Laermprotokollprofessionell@outlook.de</a></p>
+
+      <h2 id="agb">Allgemeine Geschäftsbedingungen (AGB)</h2>
+      <p class="meta">Stand: 29. Juli 2025</p>
+
+      <h3>1. Geltungsbereich</h3>
+      <p>Diese AGB gelten für die Nutzung der App „Wohnungsübergabe Protokoll Professional" (nachfolgend „App") und der zugehörigen Website. Anbieter ist Daniel Ovadia (siehe Impressum).</p>
+
+      <h3>2. Leistungsbeschreibung</h3>
+      <p>Die App ermöglicht:</p>
+      <ul>
+        <li>Dokumentation von Wohnungsübergaben mit Fotos, Videos und Notizen</li>
+        <li>Zeitstempel und GPS-Ortung (optional)</li>
+        <li>Export als PDF/JSON/ZIP</li>
+        <li>Lokale Datenspeicherung ohne Cloud-Zwang</li>
+      </ul>
+      <p><strong>Keine Rechtsberatung:</strong> Die App dient nur der Dokumentation. Wir garantieren keine gerichtliche Verwertbarkeit.</p>
+
+      <h3>3. Nutzungsrechte & Einschränkungen</h3>
+      <ul>
+        <li><strong>Erlaubt:</strong> Private und kommerzielle Nutzung für Dokumentationszwecke</li>
+        <li><strong>Verboten:</strong> Reverse Engineering, Dekompilierung, kommerzielle Weiterverbreitung, missbräuchliche Nutzung</li>
+      </ul>
+
+      <h3>4. Premium-Features (In-App-Käufe)</h3>
+      <p>Einige Funktionen erfordern einen einmaligen Kauf über Google Play:</p>
+      <ul>
+        <li><strong>Zahlungsabwicklung:</strong> Erfolgt durch Google Play</li>
+        <li><strong>Keine Abonnements:</strong> Alle Käufe sind einmalig</li>
+        <li><strong>Keine Rückerstattung:</strong> Nach Freischaltung nicht mehr widerrufbar</li>
+      </ul>
+
+      <h3>5. Haftungsausschluss</h3>
+      <p>Wir haften nur bei Vorsatz und grober Fahrlässigkeit. Keine Haftung für:</p>
+      <ul>
+        <li>Datenverlust (Sie sind für Backups verantwortlich)</li>
+        <li>Technische Störungen oder Gerätekompatibilität</li>
+        <li>Rechtliche Konsequenzen aus der Nutzung exportierter Daten</li>
+      </ul>
+
+      <h3>6. Änderungen & Kündigung</h3>
+      <ul>
+        <li>Wir behalten uns vor, die App und AGB jederzeit zu ändern</li>
+        <li>Sie können die Nutzung jederzeit beenden (App deinstallieren)</li>
+        <li>Bei Verstößen können wir Ihren Zugang sperren</li>
+      </ul>
+
+      <h3>7. Anwendbares Recht</h3>
+      <p>Es gilt deutsches Recht. Gerichtsstand ist Karlsruhe (bei gewerblichen Nutzern).</p>
+
+      <h2 id="hinweise">Wichtige Hinweise</h2>
+      
+      <div class="important">
+        <h3>⚖️ Keine Rechtsberatung</h3>
+        <p>Diese App bietet keine juristische Beratung. Für rechtliche Fragen wenden Sie sich bitte an einen Anwalt. Wir übernehmen keine Garantie für die gerichtliche Verwertbarkeit der erstellten Dokumente.</p>
+      </div>
+
+      <h3>📱 Technische Anforderungen</h3>
+      <ul>
+        <li>Android 8.0+ (empfohlen: Android 11+)</li>
+        <li>Mindestens 100 MB freier Speicher</li>
+        <li>Optional: Kamera, Mikrofon, GPS</li>
+      </ul>
+
+      <h3>🔧 Funktionsweise</h3>
+      <ul>
+        <li><strong>Offline-fähig:</strong> Alle Daten werden lokal gespeichert</li>
+        <li><strong>Keine Cloud:</strong> Ihre Daten verlassen Ihr Gerät nur beim Export</li>
+        <li><strong>Kostenlose Grundfunktionen:</strong> Basis-Features ohne In-App-Kauf nutzbar</li>
+      </ul>
+
+      <h3>⚠️ Haftungsausschluss</h3>
+      <p>Die Nutzung erfolgt auf eigene Verantwortung. Wir haften nicht für:</p>
+      <ul>
+        <li>Verlust von Daten (regelmäßige Backups empfohlen!)</li>
+        <li>Technische Probleme oder Inkompatibilität</li>
+        <li>Rechtliche Konsequenzen aus der Verwendung der App</li>
+      </ul>
+
+      <h2 id="eu">EU-Konformität & Verbraucherschutz</h2>
+
+      <h3>🇪🇺 DSGVO-Konformität</h3>
+      <p>Diese App ist vollständig DSGVO-konform:</p>
+      <ul>
+        <li>✅ Lokale Datenspeicherung (keine automatische Server-Übertragung)</li>
+        <li>✅ Keine Tracking-Cookies oder Analyse-Tools</li>
+        <li>✅ Transparente Datenschutzerklärung</li>
+        <li>✅ Alle Nutzerrechte gemäß Art. 15-22 DSGVO gewährleistet</li>
+      </ul>
+
+      <h3>🛡️ Widerrufsrecht (EU-Verbraucher)</h3>
+      <p>Gemäß EU-Verbraucherrechte-Richtlinie haben Sie ein 14-tägiges Widerrufsrecht bei digitalen Käufen. <strong>Wichtig:</strong> Bei sofortiger Freischaltung von Premium-Features erlischt dieses Recht.</p>
+
+      <h3>💰 Preistransparenz</h3>
+      <p>Alle Preise werden vor dem Kauf klar angezeigt (inkl. MwSt.). Keine versteckten Kosten oder automatischen Verlängerungen.</p>
+
+      <h2 id="support">Support / FAQ / Kontakt</h2>
+
+      <div class="contact-info">
+        <h3>📧 Kontakt</h3>
+        <p><strong>E-Mail:</strong> <a class="link" href="mailto:Laermprotokollprofessionell@outlook.de">Laermprotokollprofessionell@outlook.de</a><br>
+        <strong>Antwortzeit:</strong> Innerhalb von 48 Stunden (Werktage)</p>
+      </div>
+
+      <h3>❓ Häufig gestellte Fragen (FAQ)</h3>
+
+      <h4>Wie kann ich meine Daten exportieren?</h4>
+      <p>Öffnen Sie ein Protokoll → Tippen Sie auf „Exportieren" → Wählen Sie PDF, JSON oder ZIP → Speichern oder per E-Mail versenden</p>
+
+      <h4>Werden meine Daten in der Cloud gespeichert?</h4>
+      <p>Nein! Alle Daten bleiben lokal auf Ihrem Gerät. Eine Cloud-Speicherung erfolgt nur, wenn Sie Daten selbst exportieren und hochladen.</p>
+
+      <h4>Was passiert, wenn ich mein Handy wechsle?</h4>
+      <p>Exportieren Sie Ihre Daten vor dem Wechsel als ZIP-Datei. Nach Installation auf dem neuen Gerät können Sie die Daten importieren.</p>
+
+      <h4>Sind die Premium-Features ein Abo?</h4>
+      <p>Nein, alle Käufe sind einmalig. Es gibt keine Abonnements oder wiederkehrende Zahlungen.</p>
+
+      <h4>Kann ich eine Rückerstattung erhalten?</h4>
+      <p>Nach Freischaltung von Premium-Features ist keine Rückerstattung möglich. Bitte testen Sie die kostenlose Version ausgiebig.</p>
+    </article>
+  </div>
+
+  <!-- ENGLISH CONTENT -->
+  <div id="content-en" class="content-section">
+    <h1 id="impressum-en">Imprint</h1>
+    <p class="meta">Last updated: July 29, 2025</p>
+
+    <article>
+      <div class="contact-info">
+        <h2>📞 Responsible Party</h2>
+        <p><strong>Daniel Ovadia</strong><br>
+        Eugen-Richter-Str. 159<br>
+        76187 Karlsruhe, Germany<br>
+        Email: <a class="link" href="mailto:Laermprotokollprofessionell@outlook.de">Laermprotokollprofessionell@outlook.de</a><br>
+        Support exclusively via email, no phone hotline.</p>
+      </div>
+
+      <p><strong>Purpose:</strong> The "Apartment Handover Protocol Professional" app serves for professional documentation of apartment handovers (photos, videos, notes, GPS location, timestamps, checklists). The website provides legal information. No legal advice is provided; court admissibility is not guaranteed.</p>
+
+      <h2 id="datenschutz-en">Privacy Policy (applies to app & website)</h2>
+      
+      <div class="important">
+        <h3>🔒 Important Privacy Notice</h3>
+        <p><strong>All your data stays on your device!</strong> Apartment Handover Protocol Professional does not automatically transmit personal data to our servers. Your privacy is our highest priority.</p>
+      </div>
+
+      <h3>Data Processing Principles</h3>
+      <p>We process as little personal data as possible. App data is stored exclusively locally on your device and only exported at your initiative (PDF/JSON/ZIP). The website is provided via GitHub Pages (GitHub, Inc.).</p>
+
+      <h3>What data is processed?</h3>
+      <h4>Locally stored data</h4>
+      <ul>
+        <li><strong>Handover protocols:</strong> Date, time, location, descriptions, checklists</li>
+        <li><strong>Media:</strong> Photo/video recordings (only with your active use)</li>
+        <li><strong>GPS coordinates:</strong> Only if you enable location function</li>
+        <li><strong>App settings:</strong> Language, categories, preferences</li>
+      </ul>
+
+      <h4>No data transmission</h4>
+      <p>The app does <strong>not transmit any of your personal data</strong> to external servers, unless:</p>
+      <ul>
+        <li>You consciously export data (e.g. via email)</li>
+        <li>You use Google Play Billing for premium features</li>
+      </ul>
+
+      <h3>GitHub Pages (Website Hosting)</h3>
+      <p>This website is hosted on GitHub Pages. GitHub may process technical data when pages are accessed:</p>
+      <ul>
+        <li><strong>IP address:</strong> Stored in anonymized server logs</li>
+        <li><strong>Browser type and version</strong></li>
+        <li><strong>Pages accessed and time</strong></li>
+      </ul>
+      <p>GitHub Pages does not set tracking cookies. More information: <a class="link" href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages" target="_blank">GitHub Pages Privacy</a></p>
+
+      <h3>Your Rights (GDPR)</h3>
+      <p>You have the following rights:</p>
+      <ul>
+        <li><strong>Access:</strong> What data we process about you</li>
+        <li><strong>Rectification:</strong> Correction of incorrect data</li>
+        <li><strong>Erasure:</strong> Deletion of your data ("Right to be forgotten")</li>
+        <li><strong>Restriction:</strong> Blocking of data processing</li>
+        <li><strong>Data portability:</strong> Receive your data in structured format</li>
+        <li><strong>Objection:</strong> To certain processing activities</li>
+        <li><strong>Complaint:</strong> With a data protection supervisory authority</li>
+      </ul>
+      <p>Contact for privacy inquiries: <a class="link" href="mailto:Laermprotokollprofessionell@outlook.de">Laermprotokollprofessionell@outlook.de</a></p>
+
+      <h2 id="agb-en">Terms and Conditions</h2>
+      <p class="meta">Last updated: July 29, 2025</p>
+
+      <h3>1. Scope</h3>
+      <p>These terms apply to the use of the "Apartment Handover Protocol Professional" app and associated website. Provider: Daniel Ovadia (see imprint).</p>
+
+      <h3>2. Service Description</h3>
+      <p>The app enables:</p>
+      <ul>
+        <li>Documentation of apartment handovers with photos, videos, and notes</li>
+        <li>Timestamps and GPS location (optional)</li>
+        <li>Export as PDF/JSON/ZIP</li>
+        <li>Local data storage without cloud requirement</li>
+      </ul>
+      <p><strong>No legal advice:</strong> The app serves documentation purposes only. We do not guarantee court admissibility.</p>
+
+      <h3>3. Usage Rights & Restrictions</h3>
+      <ul>
+        <li><strong>Permitted:</strong> Private and commercial use for documentation purposes</li>
+        <li><strong>Prohibited:</strong> Reverse engineering, decompilation, commercial redistribution, abusive use</li>
+      </ul>
+
+      <h3>4. Premium Features (In-App Purchases)</h3>
+      <p>Some features require a one-time purchase via Google Play:</p>
+      <ul>
+        <li><strong>Payment processing:</strong> Handled by Google Play</li>
+        <li><strong>No subscriptions:</strong> All purchases are one-time</li>
+        <li><strong>No refunds:</strong> Not revocable after activation</li>
+      </ul>
+
+      <h3>5. Disclaimer</h3>
+      <p>We are only liable for intent and gross negligence. No liability for:</p>
+      <ul>
+        <li>Data loss (you are responsible for backups)</li>
+        <li>Technical failures or device compatibility</li>
+        <li>Legal consequences from using exported data</li>
+      </ul>
+
+      <h2 id="hinweise-en">Important Notices</h2>
+      
+      <div class="important">
+        <h3>⚖️ No Legal Advice</h3>
+        <p>This app does not provide legal advice. For legal questions, please consult a lawyer. We assume no guarantee for court admissibility of created documents.</p>
+      </div>
+
+      <h3>📱 Technical Requirements</h3>
+      <ul>
+        <li>Android 8.0+ (recommended: Android 11+)</li>
+        <li>At least 100 MB free storage</li>
+        <li>Optional: Camera, microphone, GPS</li>
+      </ul>
+
+      <h2 id="eu-en">EU Compliance & Consumer Protection</h2>
+
+      <h3>🇪🇺 GDPR Compliance</h3>
+      <p>This app is fully GDPR compliant:</p>
+      <ul>
+        <li>✅ Local data storage (no automatic server transmission)</li>
+        <li>✅ No tracking cookies or analytics tools</li>
+        <li>✅ Transparent privacy policy</li>
+        <li>✅ All user rights according to Art. 15-22 GDPR guaranteed</li>
+      </ul>
+
+      <h2 id="support-en">Support / FAQ / Contact</h2>
+
+      <div class="contact-info">
+        <h3>📧 Contact</h3>
+        <p><strong>Email:</strong> <a class="link" href="mailto:Laermprotokollprofessionell@outlook.de">Laermprotokollprofessionell@outlook.de</a><br>
+        <strong>Response time:</strong> Within 48 hours (business days)</p>
+      </div>
+
+      <h3>❓ Frequently Asked Questions (FAQ)</h3>
+
+      <h4>How can I export my data?</h4>
+      <p>Open a protocol → Tap "Export" → Select PDF, JSON, or ZIP → Save or send via email</p>
+
+      <h4>Is my data stored in the cloud?</h4>
+      <p>No! All data remains locally on your device. Cloud storage only occurs if you export and upload data yourself.</p>
+    </article>
+  </div>
+
+  <!-- FRENCH CONTENT -->
+  <div id="content-fr" class="content-section">
+    <h1 id="impressum-fr">Mentions légales</h1>
+    <p class="meta">Dernière mise à jour : 29 juillet 2025</p>
+
+    <article>
+      <div class="contact-info">
+        <h2>📞 Responsable</h2>
+        <p><strong>Daniel Ovadia</strong><br>
+        Eugen-Richter-Str. 159<br>
+        76187 Karlsruhe, Allemagne<br>
+        Email : <a class="link" href="mailto:Laermprotokollprofessionell@outlook.de">Laermprotokollprofessionell@outlook.de</a><br>
+        Support exclusivement par email, pas de hotline téléphonique.</p>
+      </div>
+
+      <p><strong>Objet :</strong> L'application "Protocole de Remise d'Appartement Professional" sert à la documentation professionnelle des remises d'appartement (photos, vidéos, notes, géolocalisation GPS, horodatages, listes de contrôle). Le site web fournit des informations juridiques. Aucun conseil juridique n'est fourni ; l'admissibilité au tribunal n'est pas garantie.</p>
+
+      <h2 id="datenschutz-fr">Politique de confidentialité</h2>
+      
+      <div class="important">
+        <h3>🔒 Avis important sur la confidentialité</h3>
+        <p><strong>Toutes vos données restent sur votre appareil !</strong> Protocole de Remise d'Appartement Professional ne transmet pas automatiquement de données personnelles à nos serveurs. Votre vie privée est notre priorité absolue.</p>
+      </div>
+
+      <h3>Principes de traitement des données</h3>
+      <p>Nous traitons le moins de données personnelles possible. Les données de l'application sont stockées exclusivement localement sur votre appareil et ne sont exportées qu'à votre initiative (PDF/JSON/ZIP).</p>
+    </article>
+  </div>
+
+  <!-- SPANISH CONTENT -->
+  <div id="content-es" class="content-section">
+    <h1 id="impressum-es">Información legal</h1>
+    <p class="meta">Última actualización: 29 de julio de 2025</p>
+
+    <article>
+      <div class="contact-info">
+        <h2>📞 Responsable</h2>
+        <p><strong>Daniel Ovadia</strong><br>
+        Eugen-Richter-Str. 159<br>
+        76187 Karlsruhe, Alemania<br>
+        Email: <a class="link" href="mailto:Laermprotokollprofessionell@outlook.de">Laermprotokollprofessionell@outlook.de</a><br>
+        Soporte exclusivamente por email, sin línea telefónica.</p>
+      </div>
+
+      <p><strong>Propósito:</strong> La aplicación "Protocolo de Entrega de Vivienda Professional" sirve para la documentación profesional de entregas de viviendas (fotos, videos, notas, ubicación GPS, marcas de tiempo, listas de verificación). El sitio web proporciona información legal. No se proporciona asesoramiento legal; no se garantiza la admisibilidad judicial.</p>
+
+      <h2 id="datenschutz-es">Política de privacidad</h2>
+      
+      <div class="important">
+        <h3>🔒 Aviso importante de privacidad</h3>
+        <p><strong>¡Todos sus datos permanecen en su dispositivo!</strong> Protocolo de Entrega de Vivienda Professional no transmite automáticamente datos personales a nuestros servidores. Su privacidad es nuestra máxima prioridad.</p>
+      </div>
+
+      <h3>Principios de procesamiento de datos</h3>
+      <p>Procesamos la menor cantidad posible de datos personales. Los datos de la aplicación se almacenan exclusivamente de forma local en su dispositivo y solo se exportan por su iniciativa (PDF/JSON/ZIP).</p>
+    </article>
+  </div>
+
+  <!-- ITALIAN CONTENT -->
+  <div id="content-it" class="content-section">
+    <h1 id="impressum-it">Informazioni legali</h1>
+    <p class="meta">Ultimo aggiornamento: 29 luglio 2025</p>
+
+    <article>
+      <div class="contact-info">
+        <h2>📞 Responsabile</h2>
+        <p><strong>Daniel Ovadia</strong><br>
+        Eugen-Richter-Str. 159<br>
+        76187 Karlsruhe, Germania<br>
+        Email: <a class="link" href="mailto:Laermprotokollprofessionell@outlook.de">Laermprotokollprofessionell@outlook.de</a><br>
+        Supporto esclusivamente via email, nessuna hotline telefonica.</p>
+      </div>
+
+      <p><strong>Scopo:</strong> L'app "Protocollo di Consegna Appartamento Professional" serve per la documentazione professionale delle consegne di appartamenti (foto, video, note, posizione GPS, timestamp, checklist). Il sito web fornisce informazioni legali. Non viene fornita consulenza legale; l'ammissibilità in tribunale non è garantita.</p>
+
+      <h2 id="datenschutz-it">Informativa sulla privacy</h2>
+      
+      <div class="important">
+        <h3>🔒 Avviso importante sulla privacy</h3>
+        <p><strong>Tutti i tuoi dati rimangono sul tuo dispositivo!</strong> Protocollo di Consegna Appartamento Professional non trasmette automaticamente dati personali ai nostri server. La tua privacy è la nostra massima priorità.</p>
+      </div>
+
+      <h3>Principi di trattamento dei dati</h3>
+      <p>Elaboriamo il minor numero possibile di dati personali. I dati dell'app sono archiviati esclusivamente localmente sul tuo dispositivo e vengono esportati solo su tua iniziativa (PDF/JSON/ZIP).</p>
+    </article>
+  </div>
+</main>
+
+<footer class="wrap">
+  <p>© 2025 Daniel Ovadia · <a href="#" id="manage-consent" class="link">Datenschutzeinstellungen</a> · Diese Website nutzt ausschließlich notwendige Hosting‑Logs (GitHub Pages), keine Cookies, kein Tracking.</p>
+</footer>
+
+<!-- Consent Banner & Modal -->
+<div id="consent-banner" role="region" aria-label="Datenschutzhinweis" style="display:none;">
+  <div class="inner">
+    <p><strong>Datenschutzhinweis:</strong> Auf dieser Website werden nur <em>technisch notwendige</em> Hosting‑Logs durch GitHub Pages verarbeitet. 
+    Wir setzen keine Cookies, kein Tracking, keine Analyse. Details im Rechtstext.</p>
+    <div class="actions">
+      <button class="btn primary" id="consent-close">Hinweis schließen</button>
+      <button class="btn" id="consent-details">Details ansehen</button>
+    </div>
+  </div>
+</div>
+
+<div id="consent-modal" role="dialog" aria-modal="true" aria-labelledby="consent-title">
+  <div class="card">
+    <h3 id="consent-title">Datenschutz‑Einstellungen (nur Anzeige)</h3>
+    <div class="row"><div>Notwendig (Hosting/Logs)</div><div class="badge">immer aktiv</div></div>
+    <div class="row"><div>Komfort/Analyse</div><div class="badge">nicht verwendet</div></div>
+    <div style="display:flex; gap:.5rem; justify-content:flex-end; margin-top:1rem;">
+      <button class="btn" id="modal-close">Schließen</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // Consent Banner Logic
+  const KEY = "wp_consent_viewonly_v1";
+  const banner = document.getElementById('consent-banner');
+  const modal = document.getElementById('consent-modal');
+  const openSettings = document.getElementById('manage-consent');
+  const btnClose = document.getElementById('consent-close');
+  const btnDetails = document.getElementById('consent-details');
+  const btnModalClose = document.getElementById('modal-close');
+
+  function hasSeenBanner() {
+    try { return localStorage.getItem(KEY) === "1"; } catch(e){ return true; }
+  }
+  function remember() { try { localStorage.setItem(KEY, "1"); } catch(e){} }
+  function showBanner() { banner.style.display = 'block'; }
+  function hideBanner() { banner.style.display = 'none'; }
+  function openModal() { modal.style.display = 'flex'; }
+  function closeModal() { modal.style.display = 'none'; }
+
+  if (!hasSeenBanner()) showBanner();
+
+  btnClose.addEventListener('click', function(){ remember(); hideBanner(); });
+  btnDetails.addEventListener('click', function(){ openModal(); });
+  btnModalClose.addEventListener('click', function(){ closeModal(); });
+  openSettings.addEventListener('click', function(e){ e.preventDefault(); openModal(); });
+
+  // Language Switching Logic
+  const langButtons = document.querySelectorAll('.language-selector a');
+  const contentSections = document.querySelectorAll('.content-section');
+  const navMenu = document.getElementById('nav-menu');
+  const brandTitle = document.getElementById('brand-title');
+  const brandSubtitle = document.getElementById('brand-subtitle');
+
+  // Navigation translations
+  const navTranslations = {
+    de: {
+      impressum: 'Impressum',
+      datenschutz: 'Datenschutz',
+      agb: 'AGB',
+      hinweise: 'Hinweise',
+      eu: 'EU',
+      support: 'Support/FAQ/Kontakt'
+    },
+    en: {
+      impressum: 'Imprint',
+      datenschutz: 'Privacy',
+      agb: 'Terms',
+      hinweise: 'Legal Notice',
+      eu: 'EU',
+      support: 'Support/FAQ/Contact'
+    },
+    fr: {
+      impressum: 'Mentions légales',
+      datenschutz: 'Confidentialité',
+      agb: 'CGU',
+      hinweise: 'Avis légal',
+      eu: 'EU',
+      support: 'Support/FAQ/Contact'
+    },
+    es: {
+      impressum: 'Información legal',
+      datenschutz: 'Privacidad',
+      agb: 'Términos',
+      hinweise: 'Aviso legal',
+      eu: 'EU',
+      support: 'Soporte/FAQ/Contacto'
+    },
+    it: {
+      impressum: 'Informazioni legali',
+      datenschutz: 'Privacy',
+      agb: 'Termini',
+      hinweise: 'Note legali',
+      eu: 'EU',
+      support: 'Supporto/FAQ/Contatto'
+    }
+  };
+
+  // Brand translations
+  const brandTranslations = {
+    de: { title: 'WOHNUNGSÜBERGABE PROTOKOLL', subtitle: 'PROFESSIONAL' },
+    en: { title: 'APARTMENT HANDOVER PROTOCOL', subtitle: 'PROFESSIONAL' },
+    fr: { title: 'PROTOCOLE DE REMISE D\'APPARTEMENT', subtitle: 'PROFESSIONNEL' },
+    es: { title: 'PROTOCOLO DE ENTREGA DE VIVIENDA', subtitle: 'PROFESIONAL' },
+    it: { title: 'PROTOCOLLO DI CONSEGNA APPARTAMENTO', subtitle: 'PROFESSIONALE' }
+  };
+
+  function switchLanguage(lang) {
+    // Hide all content sections
+    contentSections.forEach(section => section.classList.remove('active'));
+    
+    // Show selected language section
+    const targetSection = document.getElementById(`content-${lang}`);
+    if (targetSection) {
+      targetSection.classList.add('active');
+    }
+
+    // Update language selector
+    langButtons.forEach(btn => btn.classList.remove('active'));
+    document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+
+    // Update navigation with correct hrefs for current language
+    const navLinks = navMenu.querySelectorAll('a');
+    navLinks.forEach(link => {
+      const section = link.getAttribute('data-section');
+      if (section) {
+        // Update href to point to correct language section
+        const newHref = lang === 'de' ? `#${section}` : `#${section}-${lang}`;
+        link.href = newHref;
+        
+        // Update text if translation exists
+        const translations = navTranslations[lang];
+        if (translations && translations[section]) {
+          link.textContent = translations[section];
+        }
+      }
+    });
+
+    // Update brand
+    const brandTrans = brandTranslations[lang];
+    if (brandTrans) {
+      brandTitle.textContent = brandTrans.title;
+      brandSubtitle.textContent = brandTrans.subtitle;
+    }
+
+    // Update HTML lang attribute
+    document.documentElement.lang = lang;
+
+    // Save language preference
+    try {
+      localStorage.setItem('wp_language', lang);
+    } catch(e) {}
+  }
+
+  // Language switching event listeners
+  langButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      const lang = this.getAttribute('data-lang');
+      switchLanguage(lang);
+    });
+  });
+
+  // Load saved language preference and initialize
+  try {
+    const savedLang = localStorage.getItem('wp_language');
+    if (savedLang && ['de', 'en', 'fr', 'es', 'it'].includes(savedLang)) {
+      switchLanguage(savedLang);
+    } else {
+      switchLanguage('de');
+    }
+  } catch(e) {
+    switchLanguage('de');
+  }
+
+  // Smooth scrolling for navigation
+  document.addEventListener('click', function(e) {
+    if (e.target.matches('nav a[href^="#"]')) {
+      e.preventDefault();
+      const targetId = e.target.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  });
+
+})();
+</script>
+
+</body>
+</html>
